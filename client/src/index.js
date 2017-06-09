@@ -16,8 +16,6 @@ class AZ_Dropdown extends React.Component{
     this.props.change(e.target.value);
   }
 
-
-
   render() {
         var message='You selected '+this.state.selectValue;
         return (
@@ -28,57 +26,10 @@ class AZ_Dropdown extends React.Component{
             <option value="CCG3">CCG3</option>
           </select>
           <p>{message}</p>
-          <FetchRack />
           </div>
         );
     }
 }
-
-
-
-
-// class FetchDemo extends React.Component {
-//   constructor(props) {
-//     super(props);
-//
-//     this.state = {
-//       posts: []
-//     };
-//   }
-//
-//   componentDidMount() {
-//     axios.get('http://localhost:3001/helloworld')
-//       .then(res => {
-//         const posts = res.data.data.children;
-//         this.setState({ posts });
-//       });
-//   }
-//
-//   render() {
-//     return (
-//       <div>
-//         <h1>{`/r/${this.props.subreddit}`}</h1>
-//         <ul>
-//           {this.state.posts.map(post =>
-//             <li key={post.id}>{post.title}</li>
-//           )}
-//         </ul>
-//       </div>
-//     );
-//   }
-// }
-
-class FetchRack extends React.Component{
-  render() {
-    return(
-      axios.get('http://localhost:3001/helloworld')
-      .then(function (response) {
-        console.log(response); console.log(response.data); return response.data;
-      })
-    );
-  }
-}
-
 
 class Dash_board extends React.Component{
   constructor(props){
@@ -93,24 +44,44 @@ class Dash_board extends React.Component{
     this.setState({selectedValue: val});
   }
 
-  // fetchRack(){
-  //   return (
-  //     fetch('http://localhost:3001/helloworld')
-  //     .then((response) => {response.json(); console.log(response.json())})
-  //     .then((responseJson) => {return responseJson.racks;})
-  //     .catch((error) => {console.error(error);})
-  //   );
-  // }
-
-
-
   render() {
           return (
           <div>
           <AZ_Dropdown change={this.modifystate.bind(this)} />
+          <App dc={this.state.selectedValue}/>
           </div>
           );
       }
 }
+
+class App extends React.Component{
+  constructor(props){
+    super(props)
+    this.state={
+      racks: []
+    }
+  }
+
+  componentDidMount() {
+    console.log(this.state.racks)
+    axios.get('http://localhost:3001/helloworld').then(response => {
+        this.setState({racks: response.data.racks})
+      });
+  }
+
+  render(){
+    console.log(this.state.racks)
+      return(
+        <div>
+        <h3>Racks in Data center {this.props.dc}</h3>
+        <ul>
+          <li>{this.state.racks[0]}</li>
+          <li>{this.state.racks[1]}</li>
+          <li>{this.state.racks[2]}</li>
+        </ul>
+        </div>
+      );
+    }
+  }
 
 ReactDOM.render(<Dash_board />, document.getElementById("root"));
