@@ -6,7 +6,6 @@
 
 exports.helloworld = function(req, res, next) {
   res.status(200).json({
-    label: "racks",
-    value: ["LV1", "LV2"]
-  })
+"racks":[ "LV1", "LV2", "LV3"]
+})
 }
