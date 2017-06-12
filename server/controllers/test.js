@@ -4,7 +4,7 @@
 // api
 //============================
 
-exports.helloworld = function(req, res, next) {
+exports.test = function(req, res, next) {
   res.status(200).json({
 "racks":[ "LV1", "LV2", "LV3"]
 })
