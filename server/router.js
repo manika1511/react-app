@@ -3,7 +3,9 @@
 // our controllers
 //============================
 const express = require('express');
-const _ourController = require('./controllers/_our-controller');
+// const main = require('./controllers/main');
+const test = require('./controllers/test');
+const _rackRequest = require('./controllers/_rack-request');
 
 
 //============================
@@ -15,7 +17,9 @@ module.exports = function(app) {
   const apiRoutes = express.Router();
 
   //define first router
-  apiRoutes.get('/helloworld', _ourController.helloworld);
+  // app.get('/', main.Dash_board);
+  app.get('/test', test.test);
+  app.post('/rack', _rackRequest.rack)
 
 
 
