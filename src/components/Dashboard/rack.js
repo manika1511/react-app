@@ -40,7 +40,8 @@ class App extends React.Component{
   }
 
   loadRack(val){
-    restClient.getRacks(val).then(response => {
+    restClient.getRacks(val)
+    .then(response => {
     console.log(response.data.racks)
     this.setState({data: response.data.racks})
     });
