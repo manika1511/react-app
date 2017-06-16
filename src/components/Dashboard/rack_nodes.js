@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import axios from 'axios';
 import TableDisplay from './node_table'
 import '../../index.css';
+import {restClient} from './restClient';
 
 export default class RackNodes extends React.Component{
   constructor(props){
@@ -15,24 +16,20 @@ export default class RackNodes extends React.Component{
   }
 
   loadNodes(val){
-      axios.post('/node', {
-        rack: val,
-      })
-      .then(response => {
-        console.log(response.data.nodes)
-        this.setState({nodes: response.data.nodes})
-        // console.log(this.state.nodes[0])
-        this.loadNodeData(this.state.nodes)
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
+    restClient.getNodes(val)
+    .then(response => {
+      console.log(response.data.nodes)
+      this.setState({nodes: response.data.nodes})
+      // console.log(this.state.nodes[0])
+      this.loadNodeData(this.state.nodes)
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
   }
 
   loadNodeData(val){
-    axios.post('/node_data', {
-      node: val,
-    })
+    restClient.getNodeData(val)
     .then(response => {
       console.log(response.data.node_data)
       this.setState({node_data: response.data.node_data, nodes_ret: true})
