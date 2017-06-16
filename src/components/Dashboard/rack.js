@@ -2,6 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
 
+import {restClient} from './restClient';
+
 export default class RackInfo extends React.Component{
   constructor(props){
     super(props)
@@ -37,26 +39,23 @@ class App extends React.Component{
     this.props.change(e.target.id);
   }
 
-  loadData(val){
-      axios.post('/rack', {
-        dc: val,
-      })
-      .then(response => {
-        console.log(response.data.racks)
-        this.setState({data: response.data.racks})
-      });
+  loadRack(val){
+    restClient.getRacks(val).then(response => {
+    console.log(response.data.racks)
+    this.setState({data: response.data.racks})
+    });
   }
 
-componentWillMount() {
-  console.log("will mount")
-  console.log(this.props.dc)
-  this.loadData(this.props.dc);
-}
+  componentWillMount() {
+    console.log("will mount")
+    console.log(this.props.dc)
+    this.loadRack(this.props.dc);
+  }
 
   componentWillReceiveProps(nextProps){
     console.log("will receive")
     if (nextProps.dc != this.props.dc){
-      this.loadData(nextProps.dc)
+      this.loadRack(nextProps.dc)
     }
   }
 
