@@ -5,7 +5,7 @@ const express = require('express'),
 
 const router = require('./router');
 
-var port = 3001;
+var port = 3000;
 
 //============================
 // initialize the server

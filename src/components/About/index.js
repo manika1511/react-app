@@ -5,9 +5,9 @@ import classnames from 'classnames';
 import './style.css';
 
 class About extends Component {
-  static propTypes = {}
-  static defaultProps = {}
-  state = {}
+  //static propTypes = {}
+  //static defaultProps = {}
+  //state = {}
 
   render() {
     const { className, ...props } = this.props;

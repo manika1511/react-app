@@ -16,7 +16,7 @@ exports.node_data = function(req, res, next) {
     } else if (req.body.node == "Node9"){
       node_data.push([ {"name": "Node9", "OS": "A", "age":30}])
     } else {
-      node_data.push([ {"name": "Node4", "OS": "A", "age":24}])
+      node_data.push([ {"name": node, "OS": "A", "age":24}])
     }
   })
 

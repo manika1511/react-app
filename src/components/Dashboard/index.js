@@ -32,7 +32,7 @@ export default class DashBoard extends React.Component{
       <RackInfo dc={this.state.selectedValue} selRack={this.modifyRackState.bind(this)}/>
       </div>
       );
-    } else {
+    } else if (this.state.selectedValue !== "" && this.state.selectedRack !== ""){
       return (
         <RackNodes rack={this.state.selectedRack} />
       );

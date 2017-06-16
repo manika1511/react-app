@@ -44,23 +44,25 @@ class App extends React.Component{
       .then(response => {
         console.log(response.data.racks)
         this.setState({data: response.data.racks})
-      })
-      .catch(function (error) {
-        console.log(error);
       });
   }
 
 componentWillMount() {
+  console.log("will mount")
+  console.log(this.props.dc)
   this.loadData(this.props.dc);
 }
 
   componentWillReceiveProps(nextProps){
+    console.log("will receive")
     if (nextProps.dc != this.props.dc){
-      this.loadData(nextProps.dc);
+      this.loadData(nextProps.dc)
     }
   }
 
   render(){
+    console.log("render")
+    console.log(this.state.data)
       return(
         <div>
         <h3>Racks in Data center {this.props.dc}</h3>
