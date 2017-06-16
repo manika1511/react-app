@@ -1,7 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import axios from 'axios';
-
 import {restClient} from './restClient';
 
 export default class RackInfo extends React.Component{
