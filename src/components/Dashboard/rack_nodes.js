@@ -1,6 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import axios from 'axios';
 import TableDisplay from './node_table'
 import '../../index.css';
 import {restClient} from './restClient';
