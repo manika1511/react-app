@@ -1,7 +1,6 @@
 // src/components/App/index.js
 import React from 'react';
 import ReactDOM from 'react-dom';
-import axios from 'axios';
 import AZ_Dropdown from './az_dropdown';
 import RackInfo from './rack';
 import RackNodes from './rack_nodes'
