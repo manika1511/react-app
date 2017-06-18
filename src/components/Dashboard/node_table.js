@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../index.css';
+import '../../stylesheets/index.scss';
 
 export default class TableDisplay extends React.Component{
   render(){
