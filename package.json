@@ -6,7 +6,9 @@
     "chai": "^3.5.0",
     "mocha": "^3.0.2",
     "mz": "^2.4.0",
+    "node-sass": "^4.5.3",
     "react-scripts": "0.2.1",
+    "sass-loader": "^6.0.6",
     "supertest-as-promised": "^4.0.0"
   },
   "dependencies": {
@@ -16,14 +18,19 @@
     "cors": "^2.8.3",
     "express": "^4.14.0",
     "morgan": "^1.7.0",
+    "node-sass-chokidar": "0.0.3",
+    "npm-run-all": "^4.0.2",
     "react": "^15.2.1",
     "react-dom": "^15.2.1",
     "react-router": "^2.6.1"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "build-css": "node-sass-chokidar src/ -o src/",
+    "watch-css": "npm run build-css && node-sass-chokidar src/ -o src/ --watch --recursive",
+    "start-js": "react-scripts start",
+    "start": "npm-run-all -p watch-css start-js",
+    "build": "npm run build-css && react-scripts build",
     "start:server": "node server",
-    "build": "react-scripts build",
     "eject": "react-scripts eject",
     "test": "mocha test"
   },
