@@ -1,6 +1,6 @@
 import React from 'react';
 import TableDisplay from './node_table'
-import '../../index.css';
+import '../../stylesheets/index.css';
 import {restClient} from './restClient';
 
 export default class RackNodes extends React.Component{
