@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import '../../stylesheets/index.scss';
 import {restClient} from './restClient';
 
 export default class RackInfo extends React.Component{
