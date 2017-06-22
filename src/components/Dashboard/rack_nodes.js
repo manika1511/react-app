@@ -1,6 +1,5 @@
 import React from 'react';
 import TableDisplay from './node_table'
-import '../../stylesheets/index.css';
 import {restClient} from './restClient';
 
 export default class RackNodes extends React.Component{
@@ -31,7 +30,6 @@ export default class RackNodes extends React.Component{
     .then(response => {
       console.log(response.data.node_data)
       this.setState({node_data: response.data.node_data, nodes_ret: true})
-      console.log(this.state.node_data[0])
     })
     .catch(function (error) {
       console.log(error);

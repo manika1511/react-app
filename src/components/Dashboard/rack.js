@@ -1,7 +1,5 @@
 import React from 'react';
-import '../../stylesheets/index.scss';
 import {restClient} from './restClient';
-
 export default class RackInfo extends React.Component{
   constructor(props){
     super(props)
@@ -63,7 +61,7 @@ class App extends React.Component{
     console.log(this.state.data)
       return(
         <div>
-        <h3>Racks in Data center {this.props.dc}</h3>
+        <h3>Racks in the Data center {this.props.dc}</h3>
         <ul onClick={this.handleChange.bind(this)}>
         {
         this.state.data.map(function(data) {
