@@ -1,0 +1,67 @@
+$font-stack:    Helvetica, sans-serif;
+$primary-color: #333;
+$align: center;
+
+body {
+  width: 100%;
+  margin: auto;
+  font: 100% $font-stack;
+  color: $primary-color;
+}
+
+.container {
+  padding-top: 25px;
+  width: 400px;
+  margin: 0 auto;
+}
+
+.header {
+  text-align: center;
+  background: #6396bc;
+  width: 100%;
+  top: 0;
+  position: fixed;
+}
+
+.left-div {
+  float: left;
+  margin-top: 85px;
+  width: 165px;
+  height: 20px;
+  font-weight: bold;
+}
+
+.general {
+  align-content: center;
+}
+
+.table_container {
+  padding-top: 100px;
+  width: 400px;
+  margin: 0 auto;
+}
+
+table, th, td {
+  border: 1px solid black;
+  width: 375px;
+},
+
+
+
+select {
+    margin-top: 80px;
+    width: 170px;
+    height: 28px;
+    border-color: #000000;
+    border-width: thin;
+    background-color: #ffffff; /* fallback color if gradients are not supported */
+    border-radius: 5px;
+    color: #555;
+    font-size: inherit;
+    overflow: hidden;
+}
+
+li {
+  list-style: initial;
+  margin-left: 15px;
+}
