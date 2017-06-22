@@ -5,7 +5,7 @@ import { browserHistory } from 'react-router'
 
 import Routes from './routes';
 
-import './stylesheets/index.scss';
+import './stylesheets/style.css';
 
 ReactDOM.render(
   <Routes history={browserHistory} />,
