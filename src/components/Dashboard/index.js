@@ -26,7 +26,7 @@ export default class DashBoard extends React.Component{
     if (this.state.selectedValue !== "" && this.state.selectedRack === ""){
       return (
       <div>
-      <div>
+      <div class="foo">
         <h1>On Boarding </h1>
       </div>
       <AZ_Dropdown change={this.modifyDcState.bind(this)} />
