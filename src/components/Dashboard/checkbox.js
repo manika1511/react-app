@@ -6,20 +6,17 @@ export default class CheckBox extends React.Component{
     this.state={
       checked: false,
     };
+    this.modifyState= this.modifyState.bind(this)
   }
 
   modifyState(){
-    this.setState.checked({checked: !this.state.checked});
-
-    // {this.props.add(this.props.node,this.state.checked)}
-
-    // console.log(this.state.selectedNodes)
+    this.setState({checked: !this.state.checked});
+    {this.props.change(this.props.node,this.state.checked)}
   }
 
   render(){
-    console.log(this.props.node)
     return(
-      <input type="checkbox" checked= {this.state.checked} onChange={this.modifyState.bind(this)}/>
+      <input type="checkbox" checked= {this.state.checked} onChange={this.modifyState}/>
     );
   }
 }
