@@ -15,9 +15,7 @@ export default class RackNodes extends React.Component{
   loadNodes(val){
     restClient.getNodes(val)
     .then(response => {
-      console.log(response.data.nodes)
       this.setState({nodes: response.data.nodes})
-      // console.log(this.state.nodes[0])
       this.loadNodeData(this.state.nodes)
     })
     .catch(function (error) {
@@ -28,7 +26,6 @@ export default class RackNodes extends React.Component{
   loadNodeData(val){
     restClient.getNodeData(val)
     .then(response => {
-      console.log(response.data.node_data)
       this.setState({node_data: response.data.node_data, nodes_ret: true})
     })
     .catch(function (error) {
@@ -37,21 +34,16 @@ export default class RackNodes extends React.Component{
   }
 
   componentWillMount() {
-    console.log("rack_nodes will mount")
     this.loadNodes(this.props.rack);
   }
 
   componentWillReceiveProps(nextProps){
-    console.log("rack_nodes will receive")
     if (nextProps.dc != this.props.dc){
       this.loadNodes(nextProps.dc);
     }
   }
 
   render(){
-    console.log(this.state.node_data)
-    console.log("rack " + this.props.rack)
-    console.log("node_ret: "+ this.state.nodes_ret)
     if (this.state.nodes_ret === false){
       return(
         <div>
