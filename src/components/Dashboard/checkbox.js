@@ -11,7 +11,8 @@ export default class CheckBox extends React.Component{
 
   modifyState(){
     this.setState({checked: !this.state.checked});
-    {this.props.change(this.props.node,this.state.checked)}
+    console.log(this.state.checked)
+    {this.props.change(this.props.node,!this.state.checked)}
   }
 
   render(){
